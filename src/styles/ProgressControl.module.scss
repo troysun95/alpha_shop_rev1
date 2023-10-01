@@ -1,0 +1,25 @@
+@use 'style';
+
+.buttonContainer{
+    width: 540px;
+    height: 72px;
+    position: relative;
+    @extend %flexbox-row;
+    .buttonNext{ 
+        position:absolute;
+        bottom: 15px; 
+        right:0; 
+        width: 174px;
+        height: 46px;
+        padding:0 2rem;
+        @extend %flexbox-row;
+        justify-content: space-around ;
+        align-items: center;
+        @extend %btn-style;
+        cursor: pointer;
+    }
+}
+
+
+
+

@@ -1,0 +1,87 @@
+
+.formBody{
+    min-width: 540px;
+    min-height: 288px;
+    padding-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        'title title name name name name'
+        'phone phone phone email email email'
+        'county county adress adress adress adress';
+    justify-content: start;
+    grid-gap:25px; 
+}
+
+.titleInputGroup{
+    grid-area: title;
+    width: 160px;
+    height: 64px;    
+}
+
+.nameInputGroup{
+    grid-area: name;
+    width: 350px;
+    height: 64px;
+}
+
+.phoneInputGroup{
+    grid-area: phone;
+    width: 266px;
+    height: 64px;
+}
+.emailInputGroup{
+    grid-area: email;
+    width: 266px;
+    height: 64px;
+}
+
+.countyInputGroup{
+    grid-area: county;
+    width: 160px;
+    height: 64px;
+}
+
+
+.adressInputGroup{
+    grid-area: adress;
+    width: 350px;
+    height: 64px;
+}
+
+.inputLabel{
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 16px;
+    color:gray;
+    font-weight: 600;
+}
+
+.titleSelect,
+.countySelect{
+    width: 95%;
+    padding: 10px 12px ;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 5px;
+    color:gray;
+}
+
+.titleSelect{
+    color:black;
+}
+
+.nameInput,
+.phoneInput,
+.emailInput,
+.adressInput{
+    width: 95%;
+    padding: 10px ;
+    font-weight: 400;
+    border-radius: 5px;
+    border:1px solid gray;
+    color:gray;
+    font-size: 12px;
+}
+

@@ -1,0 +1,28 @@
+.mainSite{
+    width:1100px;
+    height: 1127px;
+    padding: 0px 165px;
+}
+.contentContainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+}
+
+.contentWrapper{
+    display: flex;
+    flex-direction: row ;
+    align-items: flex-end;
+}
+
+
+.contentRight{
+    margin-left: 2rem;;
+    float:right;
+}
+
+.divider{
+    height: 2px;
+    background-color: #e6e6eb;
+    border: none;
+}

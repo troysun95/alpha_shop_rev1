@@ -1,0 +1,21 @@
+//變數
+$btn-color:#F67599;
+
+//繼承
+%flexbox-row{
+    display: flex;
+    flex-direction:row;
+}
+
+%flexbox-column{
+    display: flex;
+    flex-direction:column;
+}
+
+%btn-style{
+    background-color: $btn-color;
+    border: none;
+    color:white;
+    font-size: 16px;
+    border-radius: 8px;
+}

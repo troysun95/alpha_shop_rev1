@@ -1,0 +1,65 @@
+
+.progressGroupContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.progressGroupActive, 
+.progressGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.progressIconActive
+,.progressIcon{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.progressIconActive{
+    background-color: black;
+}
+
+.textActive{
+    color:white;
+}
+
+
+.progressLabelActive{
+    margin-left: .5rem;
+    color:black;
+}
+
+.progressBarActive
+,.progressBar{
+    margin: 0 1rem;
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+}
+
+.progressBarActive{
+    background-color: black;
+}
+
+.progressBar{
+    background-color: gray;
+}
+
+.progressIcon{
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.text{
+    color:gray;
+}
+
+.progressLabel{
+    margin-left: .5rem;
+    color:gray;
+}
