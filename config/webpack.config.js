@@ -316,7 +316,7 @@ module.exports = function (webpackEnv) {
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',
-          'scheduler/tracing': 'scheduler/tracing-profiling',
+          'scheduler/tracing': 'scheduler/tracing-profiling'
         }),
         ...(modules.webpackAliases || {}),
       },

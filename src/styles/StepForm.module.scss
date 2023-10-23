@@ -1,7 +1,13 @@
+@use 'style';
 
-.formBody{
-    min-width: 540px;
-    min-height: 288px;
+%w-h-100{
+    width: 100%;
+    height: 100%;
+}
+
+%form-body{
+    width: 100%;
+    height: 100%;
     padding-bottom: 3rem;
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -14,69 +20,18 @@
     grid-gap:25px; 
 }
 
-.titleInputGroup{
-    grid-area: title;
-    width: 160px;
-    height: 64px;    
-}
 
-.nameInputGroup{
-    grid-area: name;
-    width: 350px;
-    height: 64px;
-}
-
-.phoneInputGroup{
-    grid-area: phone;
-    width: 266px;
-    height: 64px;
-}
-.emailInputGroup{
-    grid-area: email;
-    width: 266px;
-    height: 64px;
-}
-
-.countyInputGroup{
-    grid-area: county;
-    width: 160px;
-    height: 64px;
-}
-
-
-.adressInputGroup{
-    grid-area: adress;
-    width: 350px;
-    height: 64px;
-}
-
-.inputLabel{
-    margin-bottom: 5px;
-    font-size: 12px;
-    line-height: 16px;
-    color:gray;
-    font-weight: 600;
-}
-
-.titleSelect,
-.countySelect{
+%select-style{
     width: 95%;
     padding: 10px 12px ;
     font-weight: 400;
     font-size: 12px;
     border-radius: 5px;
-    color:gray;
 }
 
-.titleSelect{
-    color:black;
-}
-
-.nameInput,
-.phoneInput,
-.emailInput,
-.adressInput{
+%input-style{
     width: 95%;
+    margin-top: 5px;
     padding: 10px ;
     font-weight: 400;
     border-radius: 5px;
@@ -85,3 +40,147 @@
     font-size: 12px;
 }
 
+%radio-box-style{
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 1px solid #000;
+    border-radius: 50%;
+    //display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 30%;
+    box-sizing: border-box;
+}
+
+.stepFormOne{
+     .formBody{
+        @extend %form-body;
+        .titleInputGroup{
+            grid-area: title;
+            width: 160px;
+            height: 64px; 
+            .titleSelect{
+                @extend %select-style;
+                color:#000;
+            }
+        }    
+        .nameInputGroup{
+            grid-area: name;
+            width: 350px;
+            height: 64px;
+        }    
+        .phoneInputGroup{
+            grid-area: phone;
+            width: 266px;
+            height: 64px;
+        }
+        .emailInputGroup{
+            grid-area: email;
+            width: 266px;
+            height: 64px;
+        }
+        
+        .countyInputGroup{
+            grid-area: county;
+            width: 160px;
+            height: 64px;
+            .countySelect{
+                @extend %select-style;
+                color: gray;
+            }
+        }
+        
+        
+        .adressInputGroup{
+            grid-area: adress;
+            width: 350px;
+            height: 64px;
+        }
+
+        input{
+            @extend %input-style;
+        }
+    }
+}
+
+
+.stepFormTwo{
+    .formBody{
+        @extend %flexbox-column;
+        margin-bottom: 6rem;
+        .checked,
+        .unChecked{
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            padding: 1rem ;
+            @extend %flexbox-row;
+            align-items: center;
+            position: relative;
+            .radioBox{
+                @extend %radio-box-style;
+                cursor: pointer;
+            }
+            input{
+                visibility: hidden;
+            }
+            .radioInfo{
+                @extend %w-h-100;
+                @extend %flexbox-column; 
+                .shippingInfo{
+                    @extend %flexbox-row;
+                    justify-content: space-between;
+                    padding-left: 2rem;
+                    margin-bottom: 10px;
+                    .text{
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+                .period{
+                    padding-left: 2rem;
+                }
+                
+            }   
+        }
+        .checked{
+            border:1px solid #000;    
+            .radioBox{
+                border: 8px solid #000;
+            }
+        }
+        
+        .unChecked{
+            border: 1px solid #f0f0f0;                  
+        }   
+    }
+}
+
+
+.stepFormThree{
+    .formBody{
+        @extend %form-body;
+        grid-template-areas: 
+        'name name name name . .'
+        'number number number number . .'
+        'd-day d-day d-day cvc cvc cvc';
+        .nameInputGroup{
+            grid-area: name;
+        }
+        .numberInputGroup{
+            grid-area: number;
+        }
+        .dDayInputGroup{
+            grid-area: d-day;
+        }
+        .cvcInputGroup{
+            grid-area: cvc;
+        }
+        .inputLabel{
+            @extend %w-h-100;
+            input{
+    
+                @extend %input-style;
+            }
+        }
+    }
+}

@@ -1,65 +1,54 @@
+@use 'style';
 
-.progressGroupContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+$active-color:#000;
+$inactive-color: #f0f0f0;
+
+%bar-style{
+    margin: 1rem;
+    width: 2rem;
+    height: 2px;
+    border:none;
 }
 
-.progressGroupActive, 
-.progressGroup{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.progressIconActive
-,.progressIcon{
+
+%icon-style{
     width: 1.2rem;
     height: 1.2rem;
+    margin-right: 5px;
+    border: solid;
     border-radius: 50%;
-    display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    font-weight: 700;
 }
 
-.progressIconActive{
-    background-color: black;
+.ProgressContiner{
+    @extend %flexbox-row;    
+    div{
+        @extend %flexbox-row;
+        align-items: center;
+        .progressIcon{
+            @extend %icon-style;
+        }
+    }
+    .inactiveBar{
+        @extend %bar-style;
+        background-color: $inactive-color;
+    }
+    
+    .activeBar{
+        @extend %bar-style;
+        background-color: $active-color;
+    }
+    
 }
 
-.textActive{
-    color:white;
+.active{
+    color:$active-color;
 }
 
-
-.progressLabelActive{
-    margin-left: .5rem;
-    color:black;
+.inactive{
+    color:$inactive-color;
 }
 
-.progressBarActive
-,.progressBar{
-    margin: 0 1rem;
-    display: block;
-    width: 2.5rem;
-    height: 2px;
-}
-
-.progressBarActive{
-    background-color: black;
-}
-
-.progressBar{
-    background-color: gray;
-}
-
-.progressIcon{
-    border: 1px solid gray;
-    border-radius: 50%;
-}
-
-.text{
-    color:gray;
-}
-
-.progressLabel{
-    margin-left: .5rem;
-    color:gray;
-}

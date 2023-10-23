@@ -1,5 +1,6 @@
 //變數
 $btn-color:#F67599;
+$font-size:16px;
 
 //繼承
 %flexbox-row{
@@ -12,10 +13,36 @@ $btn-color:#F67599;
     flex-direction:column;
 }
 
-%btn-style{
+
+%control-buttton-size{
+    width: 174px;
+    height: 46px;
+    padding:0 2rem;
+}
+
+
+%prevbtn-style{
+    background-color: white ;
+    border: none;
+    color:#000000;
+    font-size: $font-size;
+    border-radius: 8px;
+    @extend%flexbox-row;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+%nextbtn-style{
     background-color: $btn-color;
     border: none;
     color:white;
-    font-size: 16px;
+    font-size: $font-size;
     border-radius: 8px;
+    @extend%flexbox-row;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
 }

@@ -4,19 +4,20 @@
     width: 540px;
     height: 72px;
     position: relative;
-    @extend %flexbox-row;
+    align-items: flex-end;
     .buttonNext{ 
         position:absolute;
         bottom: 15px; 
-        right:0; 
-        width: 174px;
-        height: 46px;
-        padding:0 2rem;
-        @extend %flexbox-row;
-        justify-content: space-around ;
-        align-items: center;
-        @extend %btn-style;
-        cursor: pointer;
+        right:0;
+        @extend %control-buttton-size;
+        @extend %nextbtn-style;
+    }
+    .buttonPrev{
+        position:absolute;
+        bottom: 15px; 
+        left:0; 
+        @extend %control-buttton-size;
+        @extend %prevbtn-style;
     }
 }
 
