@@ -26,7 +26,6 @@ export  default function StepFormTwo(){
                                 <div className={styles.price}>免費</div>
                             </div>
                                 <div className={styles.period}>約 3~7 個工作天</div>
-                                {/* <div className={styles.radioBox}></div> */}
                         </div>
                     </div>
                     <div className={isChecked === "DHL" ? styles.checked : styles.unChecked}>
@@ -40,7 +39,6 @@ export  default function StepFormTwo(){
                                 <div className={styles.price}>$500</div>
                             </div>
                             <div className={styles.period}>48小時內送達</div>
-                            {/* <div className={styles.radioBox}></div> */}
                         </div>
                     </div>
                 

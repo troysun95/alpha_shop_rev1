@@ -28,8 +28,19 @@ $inactive-color: #f0f0f0;
     div{
         @extend %flexbox-row;
         align-items: center;
-        .progressIcon{
+        .inActiveIcon{
             @extend %icon-style;
+            color:$inactive-color;
+
+        }
+        .activeIcon{
+            @extend %icon-style;
+            color:$inactive-color;
+        }
+        .doneIcon{
+            @extend %icon-style;
+            background-color: #000000;
+            color:#f0f0f0;
         }
     }
     .inactiveBar{
@@ -44,11 +55,4 @@ $inactive-color: #f0f0f0;
     
 }
 
-.active{
-    color:$active-color;
-}
-
-.inactive{
-    color:$inactive-color;
-}
 

@@ -25,10 +25,10 @@ export function NextButton({nextClick, text }){
     )
 }
 
-export function SubmitButton({ text }){
+export function SubmitButton({ text ,onClick}){
     return(
         <>
-            <button className={styles.buttonNext}>
+            <button className={styles.buttonNext} onClick={onClick}>
             {text}
             </button>
         </>
@@ -36,7 +36,7 @@ export function SubmitButton({ text }){
 }
 
 
-export default function ProgressControl({progressNow ,prevClick, nextClick}) {
+export default function ProgressControl({progressNow ,prevClick, nextClick, handleSubmitClick}) {
     
 
 
@@ -48,7 +48,7 @@ export default function ProgressControl({progressNow ,prevClick, nextClick}) {
                     {progressNow === 2 && <PrevButton text={"上一步"} prevClick={prevClick} />}
                     {progressNow === 2 && <NextButton text={"下一步"} nextClick={nextClick} />}
                     {progressNow === 3 && <PrevButton text={"上一步"} prevClick={prevClick} />}
-                    {progressNow === 3 && <SubmitButton text={"確認下單"} />}
+                    {progressNow === 3 && <SubmitButton text={"確認下單"} onClick={handleSubmitClick}/>}
                 </div>
             </section>
         </>

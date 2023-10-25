@@ -1,26 +1,24 @@
 import styles from "../../../styles/Cart.module.scss"
 import { ReactComponent as MinusBtn } from "../../../icons/minus-btn.svg"
 import { ReactComponent as PlusBtn } from "../../../icons/plus-btn.svg"
-import {products} from "./products.js"
-import { useState} from "react"
-
-
-function ProductItem({ data, onClickPlus, onClickMinus }) {
-   
-    const a = data.quantity * data.price
+import { useContext} from "react"
+import { CartContext } from '../../../Contexts/CartContext.js';
 
 
 
+
+function ProductItem({data,onClickMinus, onClickPlus}) {
+    const priceSum = data.quantity * data.price
     return (
         <>
             <div className={styles.productControlPanel}>
                 <div className={styles.productControl}>
-                    <MinusBtn onClick={() => onClickMinus?.({ id: data.id, quantity:data.quantity, price: data.price })}   />
+                    <MinusBtn onClick={() => onClickMinus?.({id: data.id, quantity: data.quantity, price: data.price })}   />
                     <span className={styles.productCount}>{data.quantity}</span>
-                    <PlusBtn onClick={() => onClickPlus?.({ id: data.id, quantity:data.quantity, price: data.price })} />
+                    <PlusBtn onClick={() => onClickPlus?.({id: data.id, quantity: data.quantity, price: data.price })} />
                 </div>
             </div>
-            <div className={styles.price}>${a}</div>
+            <div className={styles.price}>${priceSum}</div>
         </>
     );
 }
@@ -42,46 +40,8 @@ function CartInfo({text, totalPrice}){
 
 
 function Products() {
-    const[datas, setDatas] = useState(products)
-    const prevTotalPrice = datas.map((data =>{ return data.quantity * data.price})).reduce((total, current) => {
-        return total + current;},0)
-    console.log(prevTotalPrice)
-    const[totalPrice, setTotalPrice] = useState(prevTotalPrice)
-    
-    const handleClickMinus = ({ id, quantity, price }) => {
-        setDatas((datas) => {
-          return datas.map((data) => {
-            if (data.id === id && quantity > 0) {
-              return {
-                ...data,
-                quantity : quantity - 1
-              };
-            }
-            return data;
-          });
-        });
-        setTotalPrice(totalPrice - price)
-      };
-
-
-    const handleClickPlus = ({ id, quantity, price }) => {
-        setDatas((datas) => {
-          return datas.map((data) => {
-            if (data.id === id) {
-              return {
-                ...data,
-                quantity : quantity + 1
-              };
-            }
-            return data;
-          });
-        });
-        setTotalPrice(totalPrice + price)
-      };
-    
-
-
-
+  const { datas, totalPrice, handleClickMinus, handleClickPlus } = useContext(CartContext)
+ 
     const productItems = datas.map(data =>
         <div className={styles.productContainer} key={data.id}>
             <img className={styles.imageContainer} src={data.img} alt={data.name} />
@@ -102,13 +62,17 @@ function Products() {
 }
 
 export default function Cart() {
-    return(
+  
+
+
+  return (
     <>
+      
         <section className={styles.cartContainer}>
           <h3>購物籃</h3>
           <Products />
-          
         </section>
+      
     </>
-    )
+  );
 }

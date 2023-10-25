@@ -10,9 +10,9 @@ export default function StepFormOne(){
                 <section className={styles.formBody}>
                     <div className={styles.titleInputGroup}>
                         <div className={styles.inputLabel}>稱謂</div>
-                        <div className={styles.selectContainer}>
-                            <select  className={styles.titleSelect}>
-                                <option value="mr" selected className={styles.slelectedOption}>先生</option>
+                        <div className={styles.selectContainer} defaultValue={'DEFAULT'}>
+                            <select  className={styles.titleSelect} >
+                                <option value="DEFAULT"  className={styles.slelectedOption}>先生</option>
                                 <option value="ms">女士</option>
                                 <option value="mx">不明</option>                            
                             </select>

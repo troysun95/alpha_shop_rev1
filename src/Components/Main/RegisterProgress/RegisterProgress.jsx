@@ -1,20 +1,24 @@
 import styles from "../../../styles/RegisterProgress.module.scss"
-//import { useState } from "react";
 
+export function ProgressItem({ progressNum, stepNum, label }){
+  let iconByStep;
+  if(progressNum < stepNum) {
+      iconByStep = styles.inActiveIcon;
+  } else if(progressNum === stepNum){
+      iconByStep = styles.activeIcon;
+  } else {
+      iconByStep =  styles.doneIcon;
+  }
 
-
-
-export function ProgressItem({ progressNum, stepNum, label, a}){
   return(
-    <>
-         <div className={stepNum <= progressNum ? styles.activeProgress :styles.inactive }>
-            <div className={styles.progressIcon}>{stepNum}</div>
-             <span>{label}</span>
-         </div>
-    </>
-  )
+      <>
+          <div>
+              <div className={iconByStep}>{progressNum > stepNum ? "✔" : stepNum}</div>
+              <span>{label}</span>
+          </div>
+      </>
+  );
 }
-
 
 export function ProgressBar({progressNext, progressNow}){
   return(
